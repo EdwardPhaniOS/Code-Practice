@@ -19,7 +19,14 @@ struct Log {
     static func log(_ item: Any, file: String = #file, function: String = #function, line: Int = #line) {
         if Log.enableLog {
             let fileName = file.components(separatedBy: "/").last ?? ""
-            print("==> [File name: \(fileName)] - function: \(function) - line: \(line) - item: \(item)")
+            print("➡️ [\(fileName)] - function: \(function) - line: \(line) - item: \(item)")
+        }
+    }
+    
+    static func error(_ error: String, file: String = #file, function: String = #function, line: Int = #line) {
+        if Log.enableLog {
+            let fileName = file.components(separatedBy: "/").last ?? ""
+            print("➡️ [\(fileName)] - function: \(function) - line: \(line) - error: \(error)")
         }
     }
 }

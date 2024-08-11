@@ -42,57 +42,54 @@ class URLSessionHTTPClient: HTTPClient {
     }
     
     func executeRequest(request: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) {
-        session.dataTask(with: request) { data, response, error in
+        printRequestDetail(request)
+        
+        session.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
             if let error = error {
+                Log.error(error.localizedDescription)
                 completion(.failure(error))
             } else if let data = data, let response = response as? HTTPURLResponse {
+                self.printResponseDetail(data: data, response: response)
                 completion(.success((data, response)))
             }
         }.resume()
     }
+    
+    private func printRequestDetail(_ request: URLRequest) {
+        if !Log.enableLog { return }
+        
+        print("\n------------------------------------------------------------")
+        if let url = request.url {
+            print("Request url: \(url.absoluteString)")
+        }
+        if let method = request.httpMethod {
+            print("HTTP Method: \(method)")
+        }
+        if let headers = request.allHTTPHeaderFields {
+            print("Headers: \(headers)")
+        }
+        if let body = request.httpBody,
+            let bodyString = String(data: body, encoding: .utf8) {
+            print("Body: \(bodyString)\n")
+        }
+        print("------------------------------------------------------------\n")
+    }
+    
+    private func printResponseDetail(data: Data, response: HTTPURLResponse) {
+        if !Log.enableLog { return }
+        
+        print("\n------------------------------------------------------------")
+        print("Response URL: \(response.url?.absoluteString ?? "No URL")")
+        print("Status Code: \(response.statusCode)")
+        if let bodyString = String(data: data, encoding: .utf8) {
+            print("Response Body: \(bodyString)")
+        }
+        print("------------------------------------------------------------\n")
+    }
+    
 }
 
-class RemoteFeedService: FeedService {
-    
-    private let client: HTTPClient
-    
-    init(client: HTTPClient) {
-        self.client = client
-    }
-    
-    func load(completion: @escaping (Result<[FeedItem], Error>) -> Void) {
-        client.get(from: FeedEndPoint.list.url) { result in
-            switch result {
-            case let .success((data, response)):
-                do {
-                    let items = try FeedItemsMapper.map(data, response)
-                    completion(.success(items))
-                } catch let error {
-                    completion(.failure(error))
-                }
-            case let .failure(error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    func save(item: FeedItem, completion: @escaping (Swift.Result<Void, Error>) -> Void) {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: item.toSaveObject)
-            client.post(to: FeedEndPoint.save.url, data: data) { result in
-                switch result {
-                case .success:
-                    completion(.success(Void()))
-                case let .failure(error)
-                    completion(.failure(error))
-                }
-            }
-        } catch {
-            completion(.failure(error))
-        }
-    }
-
-}
 
 
 
