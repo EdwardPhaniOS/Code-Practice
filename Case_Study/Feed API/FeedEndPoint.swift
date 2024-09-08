@@ -10,21 +10,13 @@ import Foundation
 enum FeedEndPoint {
     case list
     case detail(String)
-    case save
     
     var url: URL {
-        let baseURL = Environment.baseURL
-        var urlString = ""
-        
         switch self {
         case .list:
-            urlString = baseURL + "feed/list"
-        case let .detail(id):
-            urlString = baseURL + "fedd/\(id)"
-        case .save:
-            urlString = baseURL + "feed/save"
+            return URL(string: Environment.baseURL + "/feed/list")!
+        case .detail(let id):
+            return URL(string: Environment.baseURL + "/feed/\(id)")!
         }
-        
-        return URL(string: urlString)!
     }
 }

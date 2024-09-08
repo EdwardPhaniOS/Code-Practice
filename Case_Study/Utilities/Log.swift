@@ -8,7 +8,7 @@
 import Foundation
 
 struct Log {
-    static var enableLog: Bool {
+    static var enable: Bool {
         #if DEBUG
         return true
         #else
@@ -17,14 +17,14 @@ struct Log {
     }
     
     static func log(_ item: Any, file: String = #file, function: String = #function, line: Int = #line) {
-        if Log.enableLog {
+        if Log.enable {
             let fileName = file.components(separatedBy: "/").last ?? ""
             print("➡️ [\(fileName)] - function: \(function) - line: \(line) - item: \(item)")
         }
     }
     
     static func error(_ error: String, file: String = #file, function: String = #function, line: Int = #line) {
-        if Log.enableLog {
+        if Log.enable {
             let fileName = file.components(separatedBy: "/").last ?? ""
             print("➡️ [\(fileName)] - function: \(function) - line: \(line) - error: \(error)")
         }

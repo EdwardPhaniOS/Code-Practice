@@ -7,7 +7,6 @@
 
 import Foundation
 
-protocol FeedService {
+protocol FeedLoader {
     func load(completion: @escaping (Swift.Result<[FeedItem], Error>) -> Void)
-    func save(item: FeedItem, completion: @escaping (Swift.Result<Void, Error>) -> Void)
 }

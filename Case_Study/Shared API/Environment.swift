@@ -25,11 +25,9 @@ enum Environment {
         case .development:
             return "https://dev-apis.com"
         case .testing:
-            return "https://testing-apis.com"
+            return "https://test-apis.com"
         case .production:
             return "https://prod-apis.com"
         }
     }
-    
 }
-

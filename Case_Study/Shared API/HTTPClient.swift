@@ -10,11 +10,15 @@ import Foundation
 protocol HTTPClient {
     typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
     
-    func get(from url: URL, completion: @escaping (Result) -> Void)
+    @discardableResult
+    func get(from url: URL, completion: @escaping (Result) -> Void) -> HTTPClientTask
     
-    func post(to url: URL, data: Data?, completion: @escaping (Result) -> Void)
+    @discardableResult
+    func delete(from url: URL, completion: @escaping (Result) -> Void) -> HTTPClientTask
     
-    func put(to url: URL, data: Data?, completion: @escaping (Result) -> Void)
+    @discardableResult
+    func post(to url: URL, data: Data?, completion: @escaping (Result) -> Void) -> HTTPClientTask
     
-    func delete(from url: URL, completion: @escaping (Result) -> Void)
+    @discardableResult
+    func put(to url: URL, data: Data?, completion: @escaping (Result) -> Void) -> HTTPClientTask
 }

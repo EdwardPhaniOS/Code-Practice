@@ -1,5 +1,5 @@
 //
-//  RemoteFeedService.swift
+//  RemoteFeedLoaderService.swift
 //  Case_Study
 //
 //  Created by Vinh Phan on 11/08/2024.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-class RemoteFeedService: FeedService {
-    
+class RemoteFeedLoader: FeedLoader {
     private let client: HTTPClient
     
     init(client: HTTPClient) {
@@ -28,22 +27,6 @@ class RemoteFeedService: FeedService {
             case let .failure(error):
                 completion(.failure(error))
             }
-        }
-    }
-    
-    func save(item: FeedItem, completion: @escaping (Swift.Result<Void, Error>) -> Void) {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: item.toSaveObject)
-            client.post(to: FeedEndPoint.save.url, data: data) { result in
-                switch result {
-                case .success:
-                    completion(.success(Void()))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        } catch {
-            completion(.failure(error))
         }
     }
 
