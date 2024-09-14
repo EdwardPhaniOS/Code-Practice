@@ -29,6 +29,7 @@
 		35BC6BB72C8DFDCB0000F1A3 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC6BB62C8DFDCB0000F1A3 /* CoreDataFeedStore.swift */; };
 		35BC6BB92C8DFE020000F1A3 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC6BB82C8DFE020000F1A3 /* FeedStore.swift */; };
 		35D7E09E2C6A5BBF0078B283 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7E09D2C6A5BBF0078B283 /* FeedCachePolicy.swift */; };
+		35FF73AD2C958519007B33B2 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF73AC2C958519007B33B2 /* UIViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		35BC6BB62C8DFDCB0000F1A3 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
 		35BC6BB82C8DFE020000F1A3 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		35D7E09D2C6A5BBF0078B283 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
+		35FF73AC2C958519007B33B2 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				350FBBC92C68B819004FBD07 /* Log.swift */,
+				35FF73AC2C958519007B33B2 /* UIViewExt.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				35BC6BB92C8DFE020000F1A3 /* FeedStore.swift in Sources */,
 				350FBBC62C68B79F004FBD07 /* FeedItemsMapper.swift in Sources */,
 				350FBBCE2C68BEC9004FBD07 /* Environment.swift in Sources */,
+				35FF73AD2C958519007B33B2 /* UIViewExt.swift in Sources */,
 				3559AF452C652BF70081C73A /* AppDelegate.swift in Sources */,
 				350FBBBF2C68A219004FBD07 /* HTTPClient.swift in Sources */,
 				35BC6BB12C8DF1530000F1A3 /* URLSessionHTTPClient.swift in Sources */,
