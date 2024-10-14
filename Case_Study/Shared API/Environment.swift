@@ -15,8 +15,10 @@ enum Environment {
     static var current: Environment {
         #if DEBUG
         return Environment.development
-        #else
+        #elseif QA
         return Environment.testing
+        #else
+        return Environment.production
         #endif
     }
     
