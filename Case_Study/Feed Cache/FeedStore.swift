@@ -8,5 +8,10 @@
 import Foundation
 
 protocol FeedStore {
-    func retrive() throws -> CachedFeed
+    
+    func insert(completion: (Result<Void, Error>) -> Void)
+    
+    func deleteCachedFeed(completion: (Result<Void, Error>) -> Void)
+    
+    func retrive(completion: (Result<CachedFeed, Error>) -> Void)
 }
