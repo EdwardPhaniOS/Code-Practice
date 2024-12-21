@@ -14,22 +14,24 @@ enum Environment {
     
     static var current: Environment {
         #if DEBUG
-        return Environment.development
+        return .development
         #elseif QA
-        return Environment.testing
+        return .testing
         #else
-        return Environment.production
+        return .production
         #endif
     }
     
     static var baseURL: String {
-        switch Environment.current {
+        switch current {
         case .development:
-            return "https://dev-apis.com"
+            return "https://dev.apis.com"
         case .testing:
-            return "https://test-apis.com"
+            return "https://test.apis.com"
         case .production:
-            return "https://prod-apis.com"
+            return "https://prod.apis.com"
         }
     }
+    
 }
+

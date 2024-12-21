@@ -14,7 +14,7 @@ class RemoteFeedLoader: FeedLoader {
         self.client = client
     }
     
-    func load(completion: @escaping (Result<[FeedItem], Error>) -> Void) {
+    func load(completion: @escaping (Result<[FeedImage], Error>) -> Void) {
         client.get(from: FeedEndPoint.list.url) { result in
             switch result {
             case let .success((data, response)):

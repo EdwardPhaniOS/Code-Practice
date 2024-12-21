@@ -26,9 +26,9 @@ class FeedItemsMapper {
             }
         }
         
-        var feedItems: [FeedItem] {
+        var feedItems: [FeedImage] {
             return items.map {
-                FeedItem(id: $0.id, desc: $0.desc, location: $0.location, imageURL: URL(string: $0.image))
+                FeedImage(id: $0.id, desc: $0.desc, location: $0.location, imageURL: URL(string: $0.image))
             }
         }
     }
@@ -37,7 +37,7 @@ class FeedItemsMapper {
         case invalidData
     }
     
-    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedItem] {
+    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedImage] {
         guard response.statusCode == 200, 
                 let root = try? JSONDecoder().decode(Root.self, from: data)
         else {

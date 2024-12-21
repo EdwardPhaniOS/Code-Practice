@@ -9,14 +9,11 @@ import Foundation
 
 enum FeedEndPoint {
     case list
-    case detail(String)
     
     var url: URL {
         switch self {
         case .list:
             return URL(string: Environment.baseURL + "/feed/list")!
-        case .detail(let id):
-            return URL(string: Environment.baseURL + "/feed/\(id)")!
         }
     }
 }

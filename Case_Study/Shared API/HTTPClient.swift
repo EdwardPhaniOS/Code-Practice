@@ -22,3 +22,4 @@ protocol HTTPClient {
     @discardableResult
     func put(to url: URL, data: Data?, completion: @escaping (Result) -> Void) -> HTTPClientTask
 }
+
