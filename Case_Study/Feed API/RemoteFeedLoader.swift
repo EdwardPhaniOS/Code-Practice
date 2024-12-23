@@ -9,18 +9,20 @@ import Foundation
 
 class RemoteFeedLoader: FeedLoader {
     private let client: HTTPClient
+    private let url: URL
     
-    init(client: HTTPClient) {
+    init(client: HTTPClient, url: URL) {
         self.client = client
+        self.url = url
     }
     
     func load(completion: @escaping (Result<[FeedImage], Error>) -> Void) {
-        client.get(from: FeedEndPoint.list.url) { result in
+        client.get(from: url) { result in
             switch result {
             case let .success((data, response)):
                 do {
-                    let items = try FeedItemsMapper.map(data, response)
-                    completion(.success(items))
+                    let feedImages = try FeedItemsMapper.map(data, response)
+                    completion(.success(feedImages))
                 } catch let error {
                     completion(.failure(error))
                 }

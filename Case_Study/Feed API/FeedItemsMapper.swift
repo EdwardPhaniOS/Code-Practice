@@ -8,12 +8,11 @@
 import Foundation
 
 class FeedItemsMapper {
-    
-    private struct Root: Decodable {
-        private var items: [RemoteItem]
+    struct Root: Decodable {
+        var items: [RemoteItem]
         
-        private struct RemoteItem: Decodable {
-            let id: String
+        struct RemoteItem: Decodable {
+            let id: UUID
             let desc: String?
             let location: String?
             let image: String
@@ -22,29 +21,22 @@ class FeedItemsMapper {
                 case id
                 case desc = "description"
                 case location
-                case image = "image_url"
+                case image = "img_url"
             }
         }
         
-        var feedItems: [FeedImage] {
-            return items.map {
-                FeedImage(id: $0.id, desc: $0.desc, location: $0.location, imageURL: URL(string: $0.image))
-            }
+        var feedImages: [FeedImage] {
+            items.map { FeedImage(id: $0.id, description: $0.desc, location: $0.location, url: URL(string: $0.location ?? "")!) }
         }
-    }
-    
-    private enum Error: Swift.Error {
-        case invalidData
     }
     
     static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedImage] {
-        guard response.statusCode == 200, 
+        guard response.statusCode == 200,
                 let root = try? JSONDecoder().decode(Root.self, from: data)
         else {
-            throw Error.invalidData
+            throw NSError(domain: "Invalid data", code: 0)
         }
         
-        return root.feedItems
+        return root.feedImages
     }
-    
 }

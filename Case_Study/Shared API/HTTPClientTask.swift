@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HTTPClientTask {
+public protocol HTTPClientTask {
     func cancel()
 }

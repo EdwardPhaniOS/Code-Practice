@@ -7,13 +7,19 @@
 
 import Foundation
 
-struct CachedFeed {
-    let feed: [LocalFeedItem]
-    let timestampt: Date
+struct FeedCachePolicy {
     
-    init(feed: [LocalFeedItem], timestampt: Date) {
-        self.feed = feed
-        self.timestampt = timestampt
+    private static let calendar = Calendar(identifier: .gregorian)
+    
+    static func validate(_ timestamp: Date, against date: Date) -> Bool {
+        
+        let maxCacheAgeInDays = 7
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp)
+        else {
+            return false
+        }
+        
+        return date < maxCacheAge
     }
 }
 

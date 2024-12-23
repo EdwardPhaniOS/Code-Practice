@@ -1,13 +1,13 @@
 //
-//  FeedItem.swift
+//  LocalFeedItem.swift
 //  Case_Study
 //
-//  Created by Vinh Phan on 11/08/2024.
+//  Created by Vinh Phan on 15/08/2024.
 //
 
 import Foundation
 
-public struct FeedImage: Equatable {
+public struct LocalFeedImage: Equatable {
     public let id: UUID
     public let description: String?
     public let location: String?
@@ -20,5 +20,3 @@ public struct FeedImage: Equatable {
         self.url = url
     }
 }
-
-
