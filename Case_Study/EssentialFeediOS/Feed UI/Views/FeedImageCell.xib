@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-3H-VeH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="8" y="8" width="304" height="568"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-fF-T4P" userLabel="Location Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="117.66666666666667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="101.66666666666667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVh-bz-FgE" userLabel="Pin Container">
                                         <rect key="frame" x="0.0" y="0.0" width="10" height="50"/>
@@ -41,7 +41,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOM-XL-krI">
-                                        <rect key="frame" x="16" y="0.0" width="304" height="42"/>
+                                        <rect key="frame" x="16" y="0.0" width="288" height="42"/>
                                         <string key="text">Location,
 Location</string>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -51,14 +51,14 @@ Location</string>
                                 </subviews>
                             </stackView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYb-yF-wQq" userLabel="Image Container">
-                                <rect key="frame" x="0.0" y="127.66666666666669" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="111.66666666666669" width="304" height="304"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JBF-QD-0BY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="304"/>
                                         <accessibility key="accessibilityConfiguration" identifier="feed-image-view"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L69-ap-5zG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="304"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="↻">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
@@ -87,7 +87,7 @@ Location</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmS-jf-St4">
-                                <rect key="frame" x="0.0" y="457.66666666666669" width="317.33333333333331" height="142.33333333333331"/>
+                                <rect key="frame" x="0.0" y="425.66666666666669" width="299.66666666666669" height="142.33333333333331"/>
                                 <string key="text">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -101,10 +101,10 @@ Location</string>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oN1-3H-VeH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2EL-WG-4NA"/>
-                    <constraint firstItem="oN1-3H-VeH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JTy-HB-ZrK"/>
-                    <constraint firstAttribute="bottom" secondItem="oN1-3H-VeH" secondAttribute="bottom" id="Oce-Zj-ty5"/>
-                    <constraint firstAttribute="trailing" secondItem="oN1-3H-VeH" secondAttribute="trailing" id="WUq-ek-P75"/>
+                    <constraint firstItem="oN1-3H-VeH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2EL-WG-4NA"/>
+                    <constraint firstItem="oN1-3H-VeH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="JTy-HB-ZrK"/>
+                    <constraint firstAttribute="bottom" secondItem="oN1-3H-VeH" secondAttribute="bottom" constant="24" id="Oce-Zj-ty5"/>
+                    <constraint firstAttribute="trailing" secondItem="oN1-3H-VeH" secondAttribute="trailing" constant="8" id="WUq-ek-P75"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
