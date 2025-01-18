@@ -15,18 +15,18 @@ class FeedItemsMapper {
             let id: UUID
             let desc: String?
             let location: String?
-            let image: String
+            let image: String?
             
             enum CodingKeys: String, CodingKey {
                 case id
                 case desc = "description"
                 case location
-                case image = "img_url"
+                case image
             }
         }
         
         var feedImages: [FeedImage] {
-            items.map { FeedImage(id: $0.id, description: $0.desc, location: $0.location, url: URL(string: $0.location ?? "")!) }
+            items.map { FeedImage(id: $0.id, description: $0.desc, location: $0.location, url: URL(string: $0.image ?? "")!) }
         }
     }
     

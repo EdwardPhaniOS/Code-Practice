@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="43" id="KGk-i7-Jjw" customClass="FeedImageCell" customModule="Case_Study" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-3H-VeH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-fF-T4P" userLabel="Location Container">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="117.66666666666667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVh-bz-FgE" userLabel="Pin Container">
+                                        <rect key="frame" x="0.0" y="0.0" width="10" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="c8h-qJ-zPU">
+                                                <rect key="frame" x="0.0" y="3" width="10" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="Lqf-UR-r81"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="c8h-qJ-zPU" firstAttribute="leading" secondItem="xVh-bz-FgE" secondAttribute="leading" id="e3Z-xW-h5e"/>
+                                            <constraint firstAttribute="width" constant="10" id="gaJ-zi-5ax"/>
+                                            <constraint firstItem="c8h-qJ-zPU" firstAttribute="top" secondItem="xVh-bz-FgE" secondAttribute="top" constant="3" id="kmO-3a-g57"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOM-XL-krI">
+                                        <rect key="frame" x="16" y="0.0" width="304" height="42"/>
+                                        <string key="text">Location,
+Location</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYb-yF-wQq" userLabel="Image Container">
+                                <rect key="frame" x="0.0" y="127.66666666666669" width="320" height="320"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JBF-QD-0BY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="feed-image-view"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L69-ap-5zG">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <state key="normal" title="↻">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retryButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nqU-WN-yl3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JBF-QD-0BY" secondAttribute="bottom" id="8Z8-UE-53y"/>
+                                    <constraint firstAttribute="trailing" secondItem="JBF-QD-0BY" secondAttribute="trailing" id="Dhk-5A-VsC"/>
+                                    <constraint firstAttribute="trailing" secondItem="L69-ap-5zG" secondAttribute="trailing" id="E2u-Sb-qNW"/>
+                                    <constraint firstItem="JBF-QD-0BY" firstAttribute="leading" secondItem="FYb-yF-wQq" secondAttribute="leading" id="FrF-IB-v9l"/>
+                                    <constraint firstItem="L69-ap-5zG" firstAttribute="leading" secondItem="FYb-yF-wQq" secondAttribute="leading" id="bla-yb-RI8"/>
+                                    <constraint firstAttribute="bottom" secondItem="L69-ap-5zG" secondAttribute="bottom" id="nfq-UO-e4y"/>
+                                    <constraint firstAttribute="width" secondItem="L69-ap-5zG" secondAttribute="height" multiplier="1:1" id="vUq-ko-DNM"/>
+                                    <constraint firstItem="JBF-QD-0BY" firstAttribute="top" secondItem="FYb-yF-wQq" secondAttribute="top" id="wVB-Se-mPH"/>
+                                    <constraint firstItem="L69-ap-5zG" firstAttribute="top" secondItem="FYb-yF-wQq" secondAttribute="top" id="wnh-Ky-HVD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmS-jf-St4">
+                                <rect key="frame" x="0.0" y="457.66666666666669" width="317.33333333333331" height="142.33333333333331"/>
+                                <string key="text">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FYb-yF-wQq" firstAttribute="width" secondItem="oN1-3H-VeH" secondAttribute="width" id="Sqi-Pd-Fvu"/>
+                            <constraint firstItem="hGV-fF-T4P" firstAttribute="width" secondItem="oN1-3H-VeH" secondAttribute="width" id="dcz-XG-1E8"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oN1-3H-VeH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2EL-WG-4NA"/>
+                    <constraint firstItem="oN1-3H-VeH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JTy-HB-ZrK"/>
+                    <constraint firstAttribute="bottom" secondItem="oN1-3H-VeH" secondAttribute="bottom" id="Oce-Zj-ty5"/>
+                    <constraint firstAttribute="trailing" secondItem="oN1-3H-VeH" secondAttribute="trailing" id="WUq-ek-P75"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="CmS-jf-St4" id="XbO-2O-BxS"/>
+                <outlet property="feedImageContainer" destination="FYb-yF-wQq" id="tZN-Fq-vyA"/>
+                <outlet property="feedImageRetryButton" destination="L69-ap-5zG" id="q8R-HI-GYU"/>
+                <outlet property="feedImageView" destination="JBF-QD-0BY" id="I9C-JG-q1O"/>
+                <outlet property="locationContainer" destination="hGV-fF-T4P" id="3pY-QE-tEf"/>
+                <outlet property="locationLabel" destination="vOM-XL-krI" id="2aP-Wb-sCU"/>
+            </connections>
+            <point key="canvasLocation" x="11" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pin" width="10" height="14"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

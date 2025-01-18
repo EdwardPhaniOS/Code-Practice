@@ -87,11 +87,15 @@ class URLSessionHTTPClient: HTTPClient {
         
         let method = request.httpMethod ?? ""
         let urlString = request.url?.absoluteString ?? ""
-        
-        print("\(method.uppercased()) - \(urlString)")
+        print("Method: \(method.uppercased())")
+        print("URL: \(urlString)")
         
         if let headers = request.allHTTPHeaderFields {
-            print("Headers: - \(headers)")
+            print("Headers:")
+            for (key, value) in headers {
+                print("\(key): \(value)")
+            }
+            print("")
         }
         
         if let data = request.httpBody {
@@ -99,7 +103,7 @@ class URLSessionHTTPClient: HTTPClient {
             print("Body: - \(text)")
         }
         
-        print("Request END ============================================")
+        print("Request END ==============================================\n")
     }
     
     func printResponseDetail(data: Data?, response: URLResponse?, error: Error?) {
@@ -111,17 +115,21 @@ class URLSessionHTTPClient: HTTPClient {
             print("Error: \(error)")
         } else if let data = data, let response = response as? HTTPURLResponse {
             let headers = response.allHeaderFields
+            print("Headers:")
+            for (key, value) in headers {
+                print("\(key): \(value)")
+            }
+            print("")
             let statusCode = response.statusCode
             let responseString = String(data: data, encoding: .utf8) ?? ""
-            
-            print("Headers: \(headers)")
-            print("StatusCode: \(statusCode)")
-            print("ResponseString: \(responseString)")
+            print("Status Code: \(statusCode)")
+            print("")
+            print("Response: \(responseString)")
         } else {
             print("Error: Unknow error")
         }
         
-        print("Response END ============================================")
+        print("Response END ==============================================\n")
     }
         
 }

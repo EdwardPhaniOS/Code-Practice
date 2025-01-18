@@ -12,12 +12,12 @@ final class FeedViewModel {
     
     private let feedLoader: FeedLoader
     
+    var onLoadingStateChange: Observer<Bool>?
+    var onFeedLoad: Observer<[FeedImage]>?
+    
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
     }
-    
-    var onLoadingStateChange: Observer<Bool>?
-    var onFeedLoad: Observer<[FeedImage]>?
     
     func loadFeed() {
         onLoadingStateChange?(true)
@@ -28,4 +28,6 @@ final class FeedViewModel {
             self?.onLoadingStateChange?(false)
         }
     }
+    
 }
+
